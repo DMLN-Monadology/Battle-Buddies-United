@@ -12,10 +12,17 @@ class UsersIndex extends React.Component  {
 
   render() {
     let killstat;
-    debugger
     if (this.props.users.BBU) {
       killstat = (
-        <p>{this.props.users.BBU.stian.kills}</p>
+        <div>
+          <h2>kills</h2>
+          <p>Stian: {this.props.users.BBU.members.table.Stian.table.stats.kills.basic.value.toLocaleString()}</p>
+          <p>Cassie: {this.props.users.BBU.members.table.Cassie.table.stats.kills.basic.value.toLocaleString()}</p>
+          <p>Scott: {this.props.users.BBU.members.table.Scott.table.stats.kills.basic.value.toLocaleString()}</p>
+          <p>Jake: {this.props.users.BBU.members.table.Jake.table.stats.kills.basic.value.toLocaleString()}</p>
+          <p>Brenna: {this.props.users.BBU.members.table.Brenna.table.stats.kills.basic.value.toLocaleString()}</p>
+          <p>Pat: {this.props.users.BBU.members.table.Pat.table.stats.kills.basic.value.toLocaleString()}</p>
+        </div>
       )
     }
     if (!this.props.users.BBU) {
