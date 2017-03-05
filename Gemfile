@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bungie_client'
-
+gem 'figaro'
 
 
 group :development, :test do
