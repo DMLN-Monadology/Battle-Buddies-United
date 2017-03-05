@@ -12,9 +12,10 @@ class UsersIndex extends React.Component  {
 
   render() {
     let killstat;
+    debugger
     if (this.props.users.BBU) {
       killstat = (
-        <p>{this.props.users.BBU.mergedAllCharacters.merged.allTime.kills.basic.value}</p>
+        <p>{this.props.users.BBU.stian.kills}</p>
       )
     }
     if (!this.props.users.BBU) {

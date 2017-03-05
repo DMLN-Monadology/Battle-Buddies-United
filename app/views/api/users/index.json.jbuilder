@@ -1,1 +1,4 @@
-json.extract! @users, :mergedAllCharacters
+json.stian do
+  json.kills @users.kills
+end
+# json.set! @users
