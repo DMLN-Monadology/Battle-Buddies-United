@@ -152,15 +152,15 @@ class UsersIndex extends React.Component  {
                         </tr>
                         <tr>
                           <th>Precision Rating</th>
-                          <th>{(buddy.precisionKills/buddy.allPvEKills).toLocaleString()}</th>
+                          <th>{(buddy.precisionKills/buddy.allPvEKills*100).toFixed(2).toString() + "%"}</th>
                         </tr>
                         <tr>
                           <th>Abilities Rating</th>
-                          <th>{(buddy.abilityKills/buddy.allPvEKills).toLocaleString()}</th>
+                          <th>{(buddy.abilityKills/buddy.allPvEKills*100).toFixed(2).toString() + "%"}</th>
                         </tr>
                         <tr>
                           <th>Mean Kill Distance</th>
-                          <th>{buddy.avgKillDistance.toLocaleString()}</th>
+                          <th>{buddy.avgKillDistance.toFixed(2).toLocaleString()}</th>
                         </tr>
                         <tr>
                           <th>Record Kill Distance</th>
