@@ -9,18 +9,31 @@ class UsersIndex extends React.Component  {
       selected: "",
       former: "",
       individualsMode: false,
+      blindReset: false,
       statChosen: "allPvEKills"
     };
   }
 
-  componentWillMount() {
-    this.props.fetchUsers();
+  componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate ran");
+    console.log(prevState.statChosen);
+    console.log(this.state.statChosen);
+    if (this.state.statChosen != prevState.statChosen) {
+      this.setState({blindReset: false})
+    };
   }
+
+  // componentWillMount() {
+  //   this.props.fetchUsers();
+  // }
+
 
   activateStatBanner(stat) {
     return (event) => {
-      this.setState({individualsMode: false})
-      this.setState({statChosen: stat})
+      event.preventDefault();
+      this.setState({blindReset: true});
+      this.setState({individualsMode: false});
+      this.setState({statChosen: stat});
       let prev = this.state.selected
       this.setState({former: prev});
       this.setState({selected: ""});
@@ -29,6 +42,7 @@ class UsersIndex extends React.Component  {
 
   setIndividualsMode() {
     return (event) => {
+      event.preventDefault();
       let prev = this.state.selected
       if (this.state.individualsMode) {
         this.setState({former: prev});
@@ -54,17 +68,11 @@ class UsersIndex extends React.Component  {
   };
 
   render() {
-    if (!this.props.users.BBU) {
-      return (
-        <div id="loading">loading! retrieving user data</div>
-      )
-    };
-    const stianStat = this.props.users.BBU.members.table.Stian.table.stats
-    const brennaStat = this.props.users.BBU.members.table.Brenna.table.stats
-    const jakeStat = this.props.users.BBU.members.table.Jake.table.stats
-    const cassieStat = this.props.users.BBU.members.table.Cassie.table.stats
-    const scottStat = this.props.users.BBU.members.table.Scott.table.stats
-    const patStat = this.props.users.BBU.members.table.Pat.table.stats
+    // if (!this.props.users.BBU) {
+    //   return (
+    //     <div id="loading">loading! retrieving user data</div>
+    //   )
+    // };
 
     const stian = {
       id: 1,
@@ -72,18 +80,20 @@ class UsersIndex extends React.Component  {
       username: "GWL_Monadology",
       color: "#5A9386",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/f6/83/87/f6838706af8603e7296b7118b41b4b25.jpg",
-      allPvEKills: stianStat.kills.basic.value,
-      kdr: stianStat.killsDeathsRatio.basic.value,
-      precisionKills: stianStat.precisionKills.basic.value,
-      avgKillDistance: stianStat.averageKillDistance.basic.value,
-      longestKillDistance: stianStat.longestKillDistance.basic.value,
-      avgLifeSpanDisplay: stianStat.averageLifespan.basic.displayValue,
-      avgLifeSpanValue: stianStat.averageLifespan.basic.value,
-      abilityKills: stianStat.abilityKills.basic.value,
-      avgResurrection: stianStat.resurrectionsPerformed.pga.value,
-      featsCount: stianStat.activitiesCleared.basic.value,
-      avgAssists: stianStat.assists.pga.value,
-      favouriteWep: stianStat.weaponBestType.basic.displayValue
+      allPvEKills: 10000,
+      kdr: 10.00,
+      precisionKills: 1000,
+      precisionRate: 10.0,
+      abilitiesRate: 10.0,
+      avgKillDistance: 100,
+      longestKillDistance: 1000,
+      avgLifeSpanDisplay: "10m30s",
+      avgLifeSpanValue: 1000,
+      abilityKills: 1000,
+      avgResurrection: 10.0,
+      featsCount: 100,
+      avgAssists: 10,
+      favouriteWep: "auto rifle"
     };
     const brenna = {
       id: 2,
@@ -91,18 +101,20 @@ class UsersIndex extends React.Component  {
       username: "Aleu1794",
       color: "#78B41A",
       pic: "https://i1.wp.com/destinynews.net/wp-content/uploads/2014/01/1-VrOpJjE.jpg",
-      allPvEKills: brennaStat.kills.basic.value,
-      kdr: brennaStat.killsDeathsRatio.basic.value,
-      precisionKills: brennaStat.precisionKills.basic.value,
-      avgKillDistance: brennaStat.averageKillDistance.basic.value,
-      longestKillDistance: brennaStat.longestKillDistance.basic.value,
-      avgLifeSpanDisplay: brennaStat.averageLifespan.basic.displayValue,
-      avgLifeSpanValue: brennaStat.averageLifespan.basic.value,
-      abilityKills: brennaStat.abilityKills.basic.value,
-      avgResurrection: brennaStat.resurrectionsPerformed.pga.value,
-      featsCount: brennaStat.activitiesCleared.basic.value,
-      avgAssists: brennaStat.assists.pga.value,
-      favouriteWep: brennaStat.weaponBestType.basic.displayValue
+      allPvEKills: 17000,
+      kdr: 17.00,
+      precisionKills: 1700,
+      precisionRate: 10.7,
+      abilitiesRate: 10.7,
+      avgKillDistance: 170,
+      longestKillDistance: 1700,
+      avgLifeSpanDisplay: "10m30s",
+      avgLifeSpanValue: 1700,
+      abilityKills: 1700,
+      avgResurrection: 10.7,
+      featsCount: 170,
+      avgAssists: 17,
+      favouriteWep: "auto rifle"
     };
     const jake = {
       id: 3,
@@ -110,18 +122,20 @@ class UsersIndex extends React.Component  {
       username: "DeltaZero117",
       color: "#BEA243",
       pic : "http://excitelt.com/i/2017/02/destiny-titan-wallpapers-android.png",
-      allPvEKills: jakeStat.kills.basic.value,
-      kdr: jakeStat.killsDeathsRatio.basic.value,
-      precisionKills: jakeStat.precisionKills.basic.value,
-      avgKillDistance: jakeStat.averageKillDistance.basic.value,
-      longestKillDistance: jakeStat.longestKillDistance.basic.value,
-      avgLifeSpanDisplay: jakeStat.averageLifespan.basic.displayValue,
-      avgLifeSpanValue: jakeStat.averageLifespan.basic.value,
-      abilityKills: jakeStat.abilityKills.basic.value,
-      avgResurrection: jakeStat.resurrectionsPerformed.pga.value,
-      featsCount: jakeStat.activitiesCleared.basic.value,
-      avgAssists: jakeStat.assists.pga.value,
-      favouriteWep: jakeStat.weaponBestType.basic.displayValue
+      allPvEKills: 11000,
+      kdr: 11.00,
+      precisionKills: 1100,
+      precisionRate: 10.1,
+      abilitiesRate: 10.1,
+      avgKillDistance: 110,
+      longestKillDistance: 1100,
+      avgLifeSpanDisplay: "10m30s",
+      avgLifeSpanValue: 1100,
+      abilityKills: 1100,
+      avgResurrection: 10.1,
+      featsCount: 110,
+      avgAssists: 11,
+      favouriteWep: "auto rifle"
     };
     const cassie = {
       id: 4,
@@ -129,18 +143,20 @@ class UsersIndex extends React.Component  {
       username: "Vasi_0713",
       color: "#CE3D45",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/fc/ff/c9/fcffc9ebbec9417b601cb8c4d6074d3b.jpg",
-      allPvEKills: cassieStat.kills.basic.value,
-      kdr: cassieStat.killsDeathsRatio.basic.value,
-      precisionKills: cassieStat.precisionKills.basic.value,
-      avgKillDistance: cassieStat.averageKillDistance.basic.value,
-      longestKillDistance: cassieStat.longestKillDistance.basic.value,
-      avgLifeSpanDisplay: cassieStat.averageLifespan.basic.displayValue,
-      avgLifeSpanValue: cassieStat.averageLifespan.basic.value,
-      abilityKills: cassieStat.abilityKills.basic.value,
-      avgResurrection: cassieStat.resurrectionsPerformed.pga.value,
-      featsCount: cassieStat.activitiesCleared.basic.value,
-      avgAssists: cassieStat.assists.pga.value,
-      favouriteWep: cassieStat.weaponBestType.basic.displayValue
+      allPvEKills: 18000,
+      kdr: 18.00,
+      precisionKills: 1800,
+      precisionRate: 10.8,
+      abilitiesRate: 10.8,
+      avgKillDistance: 180,
+      longestKillDistance: 1800,
+      avgLifeSpanDisplay: "10m30s",
+      avgLifeSpanValue: 1800,
+      abilityKills: 1800,
+      avgResurrection: 10.8,
+      featsCount: 180,
+      avgAssists: 18,
+      favouriteWep: "auto rifle"
     };
     const scott = {
       id: 5,
@@ -148,18 +164,20 @@ class UsersIndex extends React.Component  {
       username: "BobaFettLives21",
       color: "#77A0E0",
       pic: "http://www.wallpapermade.com/images/wallpapers/originals/destiny-titan-guardian-wallpaper-5860.jpg",
-      allPvEKills: scottStat.kills.basic.value,
-      kdr: scottStat.killsDeathsRatio.basic.value,
-      precisionKills: scottStat.precisionKills.basic.value,
-      avgKillDistance: scottStat.averageKillDistance.basic.value,
-      longestKillDistance: scottStat.longestKillDistance.basic.value,
-      avgLifeSpanDisplay: scottStat.averageLifespan.basic.displayValue,
-      avgLifeSpanValue: scottStat.averageLifespan.basic.value,
-      abilityKills: scottStat.abilityKills.basic.value,
-      avgResurrection: scottStat.resurrectionsPerformed.pga.value,
-      featsCount: scottStat.activitiesCleared.basic.value,
-      avgAssists: scottStat.assists.pga.value,
-      favouriteWep: scottStat.weaponBestType.basic.displayValue
+      allPvEKills: 14000,
+      kdr: 14.00,
+      precisionKills: 1400,
+      precisionRate: 10.4,
+      abilitiesRate: 10.4,
+      avgKillDistance: 140,
+      longestKillDistance: 1400,
+      avgLifeSpanDisplay: "10m30s",
+      avgLifeSpanValue: 1400,
+      abilityKills: 1400,
+      avgResurrection: 10.4,
+      featsCount: 140,
+      avgAssists: 14,
+      favouriteWep: "auto rifle"
     };
     const pat = {
       id: 6,
@@ -167,26 +185,31 @@ class UsersIndex extends React.Component  {
       username: "Pat84571",
       color: "#BC8B67",
       pic: "http://hdqwalls.com/wallpapers/destiny-warlock-guardian.jpg",
-      allPvEKills: patStat.kills.basic.value,
-      kdr: patStat.killsDeathsRatio.basic.value,
-      precisionKills: patStat.precisionKills.basic.value,
-      avgKillDistance: patStat.averageKillDistance.basic.value,
-      longestKillDistance: patStat.longestKillDistance.basic.value,
-      avgLifeSpanDisplay: patStat.averageLifespan.basic.displayValue, // string
-      avgLifeSpanValue: patStat.averageLifespan.basic.value,
-      abilityKills: patStat.abilityKills.basic.value,
-      avgResurrection: patStat.resurrectionsPerformed.pga.value,
-      featsCount: patStat.activitiesCleared.basic.value,
-      avgAssists: patStat.assists.pga.value,
-      favouriteWep: patStat.weaponBestType.basic.displayValue // string
+      allPvEKills: 15000,
+      kdr: 15.00,
+      precisionKills: 1500,
+      precisionRate: 10.5,
+      abilitiesRate: 10.5,
+      avgKillDistance: 150,
+      longestKillDistance: 1500,
+      avgLifeSpanDisplay: "10m30s",
+      avgLifeSpanValue: 1500,
+      abilityKills: 1500,
+      avgResurrection: 10.5,
+      featsCount: 150,
+      avgAssists: 15,
+      favouriteWep: "auto rifle"
     };
+
+
     let buddies = [brenna, jake, cassie, stian, scott, pat];
-    let individualsModeClass = ""
+    let individualsModeClass = "";
     if (this.state.individualsMode) {individualsModeClass = "Current"}
+
     let banners
     if (this.state.individualsMode) {
       banners = buddies.map( buddy => {
-        let classes = "banner " + buddy.name
+        let classes = "banner " + buddy.name;
         if (this.state.selected == buddy.name) {
           classes += " selected"
         } else if (this.state.former == buddy.name) {
@@ -214,11 +237,11 @@ class UsersIndex extends React.Component  {
                   </tr>
                   <tr>
                     <th>Precision Rating</th>
-                    <th>{(buddy.precisionKills/buddy.allPvEKills*100).toFixed(2).toString() + "%"}</th>
+                    <th>{buddy.precisionRate.toFixed(2).toString() + "%"}</th>
                   </tr>
                   <tr>
                     <th>Abilities Rating</th>
-                    <th>{(buddy.abilityKills/buddy.allPvEKills*100).toFixed(2).toString() + "%"}</th>
+                    <th>{buddy.abilitiesRate.toFixed(2).toString() + "%"}</th>
                   </tr>
                   <tr>
                     <th>Mean Kill Distance</th>
@@ -251,9 +274,18 @@ class UsersIndex extends React.Component  {
         )
       }
     )
+  } else if (this.state.blindReset){
+    banners = buddies.map(buddy => {
+      return (
+        <div className="banner" key={buddy.id}>
+
+        </div>
+      )
+    })
+
   } else {
     let current_stat = this.state.statChosen
-    let all_stats = []
+    let all_stats = [];
 
     buddies.map( buddy => {
       all_stats.push(buddy[current_stat])
@@ -262,15 +294,11 @@ class UsersIndex extends React.Component  {
     let max_figure = Math.max.apply(Math, all_stats)
 
     banners = buddies.map( buddy => {
-      let classes = "banner " + buddy.name
-      if (this.state.former == buddy.name) {
-        classes += " former"
-      }
+      let classes = "banner " + buddy.name;
       let percentage = (buddy[current_stat] / max_figure) * 100
       let cssStyles = {height: (percentage.toString() + "%"), backgroundColor: buddy.color}
       return (
         <div className={classes} id={buddy.name} key={buddy.id}>
-          <div className="statBlinds"></div>
           <div className="statBar" style={cssStyles}></div>
         </div>
       )
@@ -292,56 +320,56 @@ class UsersIndex extends React.Component  {
           </li>
         </ul>
         <ul className="NavigationMenu">
-          <li>
+          <li className={this.state.statChosen == "allPvEKills" ? "Current" : ""}>
             <p className="Left">[</p>
             <p className="Title Kills" onClick={this.activateStatBanner("allPvEKills")}>Kills</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "kdr" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title KDR">KDR</p>
+            <p className="Title KDR" onClick={this.activateStatBanner("kdr")}>KDR</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "avgAssists" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title Life">Mean Assists</p>
+            <p className="Title Life" onClick={this.activateStatBanner("avgAssists")}>Mean Assists</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "precisionRate" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title Precision">Precision Rating</p>
+            <p className="Title Precision" onClick={this.activateStatBanner("precisionRate")}>Precision Rating</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "abilitiesRate" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title Abilities">Abilities Rating</p>
+            <p className="Title Abilities" onClick={this.activateStatBanner("abilitiesRate")}>Abilities Rating</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "avgResurrection" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title ResurrectionsRate">Mean Resurrections Rate</p>
+            <p className="Title ResurrectionsRate" onClick={this.activateStatBanner("avgResurrection")}>Mean Resurrections Rate</p>
             <p className="Right">]</p>
           </li>
         </ul>
         <ul className="NavigationMenu">
-          <li>
+          <li className={this.state.statChosen == "avgKillDistance" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title AvgDistance">Mean Kill Distance</p>
+            <p className="Title AvgDistance" onClick={this.activateStatBanner("avgKillDistance")}>Mean Kill Distance</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "longestKillDistance" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title RecDistance">Record Kill Distance</p>
+            <p className="Title RecDistance" onClick={this.activateStatBanner("longestKillDistance")}>Record Kill Distance</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "avgLifeSpanValue" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title Life">Mean Life Expectancy</p>
+            <p className="Title Life" onClick={this.activateStatBanner("avgLifeSpanValue")}>Mean Life Expectancy</p>
             <p className="Right">]</p>
           </li>
-          <li>
+          <li className={this.state.statChosen == "featsCount" ? "Current" : ""}>
             <p className="Left">[</p>
-            <p className="Title Life">Feats Accomplished</p>
+            <p className="Title Life" onClick={this.activateStatBanner("featsCount")}>Feats Accomplished</p>
             <p className="Right">]</p>
           </li>
 
