@@ -54,3 +54,7 @@ table {
 ::-webkit-scrollbar {
     display: none;
 }
+
+p:hover {
+	cursor: default;
+}

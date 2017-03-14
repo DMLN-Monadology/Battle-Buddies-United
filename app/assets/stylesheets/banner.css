@@ -8,7 +8,7 @@
 }
 
 .selected {
-  animation: scaleUp 2s;
+  animation: scaleUp 1.5s;
 }
 
 .selected {
@@ -29,6 +29,29 @@
 }
 
 .former {
-  animation: scaleDown 2s;
+  animation: scaleDown 1.5s;
   width: 200px !important;
+}
+
+.Brenna h3 {
+  color: #78B41A;
+}
+.Jake h3 {
+  color: #BEA243;
+}
+
+.Cassie h3 {
+  color: #BC8B67;
+}
+
+.Stian h3 {
+  color: #5A9386;
+}
+
+.Scott h3 {
+  color: #77A0E0;
+}
+
+.Patty h3 {
+  color: #BC8B67;
 }
