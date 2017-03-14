@@ -70,7 +70,7 @@ class UsersIndex extends React.Component  {
       id: 1,
       name: "Stian",
       username: "GWL_Monadology",
-      color: "yellow",
+      color: "#5A9386",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/f6/83/87/f6838706af8603e7296b7118b41b4b25.jpg",
       allPvEKills: stianStat.kills.basic.value,
       kdr: stianStat.killsDeathsRatio.basic.value,
@@ -81,7 +81,7 @@ class UsersIndex extends React.Component  {
       avgLifeSpanValue: stianStat.averageLifespan.basic.value,
       abilityKills: stianStat.abilityKills.basic.value,
       avgResurrection: stianStat.resurrectionsPerformed.pga.value,
-      featsCount: stianStat.activitiesCleared.value,
+      featsCount: stianStat.activitiesCleared.basic.value,
       avgAssists: stianStat.assists.pga.value,
       favouriteWep: stianStat.weaponBestType.basic.displayValue
     };
@@ -89,7 +89,7 @@ class UsersIndex extends React.Component  {
       id: 2,
       name: "Brenna",
       username: "Aleu1794",
-      color: "green",
+      color: "#78B41A",
       pic: "https://i1.wp.com/destinynews.net/wp-content/uploads/2014/01/1-VrOpJjE.jpg",
       allPvEKills: brennaStat.kills.basic.value,
       kdr: brennaStat.killsDeathsRatio.basic.value,
@@ -100,7 +100,7 @@ class UsersIndex extends React.Component  {
       avgLifeSpanValue: brennaStat.averageLifespan.basic.value,
       abilityKills: brennaStat.abilityKills.basic.value,
       avgResurrection: brennaStat.resurrectionsPerformed.pga.value,
-      featsCount: brennaStat.activitiesCleared.value,
+      featsCount: brennaStat.activitiesCleared.basic.value,
       avgAssists: brennaStat.assists.pga.value,
       favouriteWep: brennaStat.weaponBestType.basic.displayValue
     };
@@ -108,7 +108,7 @@ class UsersIndex extends React.Component  {
       id: 3,
       name: "Jake",
       username: "DeltaZero117",
-      color: "yellow",
+      color: "#BEA243",
       pic : "http://excitelt.com/i/2017/02/destiny-titan-wallpapers-android.png",
       allPvEKills: jakeStat.kills.basic.value,
       kdr: jakeStat.killsDeathsRatio.basic.value,
@@ -119,7 +119,7 @@ class UsersIndex extends React.Component  {
       avgLifeSpanValue: jakeStat.averageLifespan.basic.value,
       abilityKills: jakeStat.abilityKills.basic.value,
       avgResurrection: jakeStat.resurrectionsPerformed.pga.value,
-      featsCount: jakeStat.activitiesCleared.value,
+      featsCount: jakeStat.activitiesCleared.basic.value,
       avgAssists: jakeStat.assists.pga.value,
       favouriteWep: jakeStat.weaponBestType.basic.displayValue
     };
@@ -127,7 +127,7 @@ class UsersIndex extends React.Component  {
       id: 4,
       name: "Cassie",
       username: "Vasi_0713",
-      color: "brown",
+      color: "#CE3D45",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/fc/ff/c9/fcffc9ebbec9417b601cb8c4d6074d3b.jpg",
       allPvEKills: cassieStat.kills.basic.value,
       kdr: cassieStat.killsDeathsRatio.basic.value,
@@ -138,7 +138,7 @@ class UsersIndex extends React.Component  {
       avgLifeSpanValue: cassieStat.averageLifespan.basic.value,
       abilityKills: cassieStat.abilityKills.basic.value,
       avgResurrection: cassieStat.resurrectionsPerformed.pga.value,
-      featsCount: cassieStat.activitiesCleared.value,
+      featsCount: cassieStat.activitiesCleared.basic.value,
       avgAssists: cassieStat.assists.pga.value,
       favouriteWep: cassieStat.weaponBestType.basic.displayValue
     };
@@ -146,7 +146,7 @@ class UsersIndex extends React.Component  {
       id: 5,
       name: "Scott",
       username: "BobaFettLives21",
-      color: "blue",
+      color: "#77A0E0",
       pic: "http://www.wallpapermade.com/images/wallpapers/originals/destiny-titan-guardian-wallpaper-5860.jpg",
       allPvEKills: scottStat.kills.basic.value,
       kdr: scottStat.killsDeathsRatio.basic.value,
@@ -157,7 +157,7 @@ class UsersIndex extends React.Component  {
       avgLifeSpanValue: scottStat.averageLifespan.basic.value,
       abilityKills: scottStat.abilityKills.basic.value,
       avgResurrection: scottStat.resurrectionsPerformed.pga.value,
-      featsCount: scottStat.activitiesCleared.value,
+      featsCount: scottStat.activitiesCleared.basic.value,
       avgAssists: scottStat.assists.pga.value,
       favouriteWep: scottStat.weaponBestType.basic.displayValue
     };
@@ -165,7 +165,7 @@ class UsersIndex extends React.Component  {
       id: 6,
       name: "Patty Pat Pat",
       username: "Pat84571",
-      color: "brown",
+      color: "#BC8B67",
       pic: "http://hdqwalls.com/wallpapers/destiny-warlock-guardian.jpg",
       allPvEKills: patStat.kills.basic.value,
       kdr: patStat.killsDeathsRatio.basic.value,
@@ -176,7 +176,7 @@ class UsersIndex extends React.Component  {
       avgLifeSpanValue: patStat.averageLifespan.basic.value,
       abilityKills: patStat.abilityKills.basic.value,
       avgResurrection: patStat.resurrectionsPerformed.pga.value,
-      featsCount: patStat.activitiesCleared.value,
+      featsCount: patStat.activitiesCleared.basic.value,
       avgAssists: patStat.assists.pga.value,
       favouriteWep: patStat.weaponBestType.basic.displayValue // string
     };
@@ -209,6 +209,10 @@ class UsersIndex extends React.Component  {
                     <th>{buddy.kdr.toFixed(2).toString()}</th>
                   </tr>
                   <tr>
+                    <th>Mean Assists</th>
+                    <th>{buddy.avgAssists.toFixed(2).toString()}</th>
+                  </tr>
+                  <tr>
                     <th>Precision Rating</th>
                     <th>{(buddy.precisionKills/buddy.allPvEKills*100).toFixed(2).toString() + "%"}</th>
                   </tr>
@@ -225,12 +229,16 @@ class UsersIndex extends React.Component  {
                     <th>{buddy.longestKillDistance.toLocaleString()}</th>
                   </tr>
                   <tr>
+                    <th>Mean Resurrections Rate</th>
+                    <th>{buddy.avgResurrection.toFixed(2).toLocaleString()}</th>
+                  </tr>
+                  <tr>
                     <th>Mean Life Expectancy</th>
                     <th>{buddy.avgLifeSpanDisplay}</th>
                   </tr>
                   <tr>
-                    <th>Mean Resurrections Rate</th>
-                    <th>{buddy.avgResurrection.toFixed(2).toLocaleString()}</th>
+                    <th>Feats Accomplished</th>
+                    <th>{buddy.featsCount.toLocaleString()}</th>
                   </tr>
                   <tr>
                     <th>Choice Weapon</th>
@@ -259,11 +267,11 @@ class UsersIndex extends React.Component  {
         classes += " former"
       }
       let percentage = (buddy[current_stat] / max_figure) * 100
-      let cssHeight = {height: (percentage.toString() + "%")}
+      let cssStyles = {height: (percentage.toString() + "%"), backgroundColor: buddy.color}
       return (
         <div className={classes} id={buddy.name} key={buddy.id}>
           <div className="statBlinds"></div>
-          <div className="statBar" style={cssHeight}></div>
+          <div className="statBar" style={cssStyles}></div>
         </div>
       )
     })
@@ -296,17 +304,17 @@ class UsersIndex extends React.Component  {
           </li>
           <li>
             <p className="Left">[</p>
+            <p className="Title Life">Mean Assists</p>
+            <p className="Right">]</p>
+          </li>
+          <li>
+            <p className="Left">[</p>
             <p className="Title Precision">Precision Rating</p>
             <p className="Right">]</p>
           </li>
           <li>
             <p className="Left">[</p>
             <p className="Title Abilities">Abilities Rating</p>
-            <p className="Right">]</p>
-          </li>
-          <li>
-            <p className="Left">[</p>
-            <p className="Title Life">Mean Assists</p>
             <p className="Right">]</p>
           </li>
           <li>

@@ -55,7 +55,7 @@
   margin-left: 1%;
   top: 0px;
   z-index: 10;
-  animation: openBlinds 8s;
+  animation: openBlinds 6.2s;
 }
 
 @keyframes openBlinds {
@@ -66,7 +66,7 @@
 
 .statBar {
   max-height: 550px;
-  background-color: green;
+  /*background-color: green;*/
   width: 98%;
   margin: 0px auto;
   align-self: flex-end;
