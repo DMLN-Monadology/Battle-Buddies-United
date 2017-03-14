@@ -34,9 +34,11 @@
   height: 50px;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
-  padding-top: 10px;
+  margin: 0px auto;
   color: white;
+}
+
+.NavigationMenu:first-of-type {
   border-top: 1px solid white;
 }
 
@@ -52,7 +54,7 @@
 
 .Title {
   margin: 0px;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: normal;
   text-align: center;
   z-index: 10;

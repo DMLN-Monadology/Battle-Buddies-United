@@ -8,8 +8,8 @@ class UsersIndex extends React.Component  {
     this.state = {
       selected: "",
       former: "",
-      individualsMode: true,
-      statChosen: ""
+      individualsMode: false,
+      statChosen: "allPvEKills"
     };
   }
 
@@ -59,21 +59,31 @@ class UsersIndex extends React.Component  {
         <div id="loading">loading! retrieving user data</div>
       )
     };
+    const stianStat = this.props.users.BBU.members.table.Stian.table.stats
+    const brennaStat = this.props.users.BBU.members.table.Brenna.table.stats
+    const jakeStat = this.props.users.BBU.members.table.Jake.table.stats
+    const cassieStat = this.props.users.BBU.members.table.Cassie.table.stats
+    const scottStat = this.props.users.BBU.members.table.Scott.table.stats
+    const patStat = this.props.users.BBU.members.table.Pat.table.stats
+
     const stian = {
       id: 1,
       name: "Stian",
       username: "GWL_Monadology",
       color: "yellow",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/f6/83/87/f6838706af8603e7296b7118b41b4b25.jpg",
-      allPvEKills: this.props.users.BBU.members.table.Stian.table.stats.kills.basic.value,
-      kdr: this.props.users.BBU.members.table.Stian.table.stats.killsDeathsRatio.basic.displayValue,
-      precisionKills: this.props.users.BBU.members.table.Stian.table.stats.precisionKills.basic.value,
-      avgKillDistance: this.props.users.BBU.members.table.Stian.table.stats.averageKillDistance.basic.value,
-      longestKillDistance: this.props.users.BBU.members.table.Stian.table.stats.longestKillDistance.basic.value,
-      avgLifeSpan: this.props.users.BBU.members.table.Stian.table.stats.averageLifespan.basic.displayValue,
-      abilityKills: this.props.users.BBU.members.table.Stian.table.stats.abilityKills.basic.value,
-      avgResurrection: this.props.users.BBU.members.table.Stian.table.stats.resurrectionsPerformed.pga.displayValue,
-      favouriteWep: this.props.users.BBU.members.table.Stian.table.stats.weaponBestType.basic.displayValue
+      allPvEKills: stianStat.kills.basic.value,
+      kdr: stianStat.killsDeathsRatio.basic.value,
+      precisionKills: stianStat.precisionKills.basic.value,
+      avgKillDistance: stianStat.averageKillDistance.basic.value,
+      longestKillDistance: stianStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: stianStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: stianStat.averageLifespan.basic.value,
+      abilityKills: stianStat.abilityKills.basic.value,
+      avgResurrection: stianStat.resurrectionsPerformed.pga.value,
+      featsCount: stianStat.activitiesCleared.value,
+      avgAssists: stianStat.assists.pga.value,
+      favouriteWep: stianStat.weaponBestType.basic.displayValue
     };
     const brenna = {
       id: 2,
@@ -81,15 +91,18 @@ class UsersIndex extends React.Component  {
       username: "Aleu1794",
       color: "green",
       pic: "https://i1.wp.com/destinynews.net/wp-content/uploads/2014/01/1-VrOpJjE.jpg",
-      allPvEKills: this.props.users.BBU.members.table.Brenna.table.stats.kills.basic.value,
-      kdr: this.props.users.BBU.members.table.Brenna.table.stats.killsDeathsRatio.basic.displayValue,
-      precisionKills: this.props.users.BBU.members.table.Brenna.table.stats.precisionKills.basic.value,
-      avgKillDistance: this.props.users.BBU.members.table.Brenna.table.stats.averageKillDistance.basic.value,
-      longestKillDistance: this.props.users.BBU.members.table.Brenna.table.stats.longestKillDistance.basic.value,
-      avgLifeSpan: this.props.users.BBU.members.table.Brenna.table.stats.averageLifespan.basic.displayValue,
-      abilityKills: this.props.users.BBU.members.table.Brenna.table.stats.abilityKills.basic.value,
-      avgResurrection: this.props.users.BBU.members.table.Brenna.table.stats.resurrectionsPerformed.pga.displayValue,
-      favouriteWep: this.props.users.BBU.members.table.Brenna.table.stats.weaponBestType.basic.displayValue
+      allPvEKills: brennaStat.kills.basic.value,
+      kdr: brennaStat.killsDeathsRatio.basic.value,
+      precisionKills: brennaStat.precisionKills.basic.value,
+      avgKillDistance: brennaStat.averageKillDistance.basic.value,
+      longestKillDistance: brennaStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: brennaStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: brennaStat.averageLifespan.basic.value,
+      abilityKills: brennaStat.abilityKills.basic.value,
+      avgResurrection: brennaStat.resurrectionsPerformed.pga.value,
+      featsCount: brennaStat.activitiesCleared.value,
+      avgAssists: brennaStat.assists.pga.value,
+      favouriteWep: brennaStat.weaponBestType.basic.displayValue
     };
     const jake = {
       id: 3,
@@ -97,15 +110,18 @@ class UsersIndex extends React.Component  {
       username: "DeltaZero117",
       color: "yellow",
       pic : "http://excitelt.com/i/2017/02/destiny-titan-wallpapers-android.png",
-      allPvEKills: this.props.users.BBU.members.table.Jake.table.stats.kills.basic.value,
-      kdr: this.props.users.BBU.members.table.Jake.table.stats.killsDeathsRatio.basic.displayValue,
-      precisionKills: this.props.users.BBU.members.table.Jake.table.stats.precisionKills.basic.value,
-      avgKillDistance: this.props.users.BBU.members.table.Jake.table.stats.averageKillDistance.basic.value,
-      longestKillDistance: this.props.users.BBU.members.table.Jake.table.stats.longestKillDistance.basic.value,
-      avgLifeSpan: this.props.users.BBU.members.table.Jake.table.stats.averageLifespan.basic.displayValue,
-      abilityKills: this.props.users.BBU.members.table.Jake.table.stats.abilityKills.basic.value,
-      avgResurrection: this.props.users.BBU.members.table.Jake.table.stats.resurrectionsPerformed.pga.displayValue,
-      favouriteWep: this.props.users.BBU.members.table.Jake.table.stats.weaponBestType.basic.displayValue
+      allPvEKills: jakeStat.kills.basic.value,
+      kdr: jakeStat.killsDeathsRatio.basic.value,
+      precisionKills: jakeStat.precisionKills.basic.value,
+      avgKillDistance: jakeStat.averageKillDistance.basic.value,
+      longestKillDistance: jakeStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: jakeStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: jakeStat.averageLifespan.basic.value,
+      abilityKills: jakeStat.abilityKills.basic.value,
+      avgResurrection: jakeStat.resurrectionsPerformed.pga.value,
+      featsCount: jakeStat.activitiesCleared.value,
+      avgAssists: jakeStat.assists.pga.value,
+      favouriteWep: jakeStat.weaponBestType.basic.displayValue
     };
     const cassie = {
       id: 4,
@@ -113,15 +129,18 @@ class UsersIndex extends React.Component  {
       username: "Vasi_0713",
       color: "brown",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/fc/ff/c9/fcffc9ebbec9417b601cb8c4d6074d3b.jpg",
-      allPvEKills: this.props.users.BBU.members.table.Cassie.table.stats.kills.basic.value,
-      kdr: this.props.users.BBU.members.table.Cassie.table.stats.killsDeathsRatio.basic.displayValue,
-      precisionKills: this.props.users.BBU.members.table.Cassie.table.stats.precisionKills.basic.value,
-      avgKillDistance: this.props.users.BBU.members.table.Cassie.table.stats.averageKillDistance.basic.value,
-      longestKillDistance: this.props.users.BBU.members.table.Cassie.table.stats.longestKillDistance.basic.value,
-      avgLifeSpan: this.props.users.BBU.members.table.Cassie.table.stats.averageLifespan.basic.displayValue,
-      abilityKills: this.props.users.BBU.members.table.Cassie.table.stats.abilityKills.basic.value,
-      avgResurrection: this.props.users.BBU.members.table.Cassie.table.stats.resurrectionsPerformed.pga.displayValue,
-      favouriteWep: this.props.users.BBU.members.table.Cassie.table.stats.weaponBestType.basic.displayValue
+      allPvEKills: cassieStat.kills.basic.value,
+      kdr: cassieStat.killsDeathsRatio.basic.value,
+      precisionKills: cassieStat.precisionKills.basic.value,
+      avgKillDistance: cassieStat.averageKillDistance.basic.value,
+      longestKillDistance: cassieStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: cassieStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: cassieStat.averageLifespan.basic.value,
+      abilityKills: cassieStat.abilityKills.basic.value,
+      avgResurrection: cassieStat.resurrectionsPerformed.pga.value,
+      featsCount: cassieStat.activitiesCleared.value,
+      avgAssists: cassieStat.assists.pga.value,
+      favouriteWep: cassieStat.weaponBestType.basic.displayValue
     };
     const scott = {
       id: 5,
@@ -129,15 +148,18 @@ class UsersIndex extends React.Component  {
       username: "BobaFettLives21",
       color: "blue",
       pic: "http://www.wallpapermade.com/images/wallpapers/originals/destiny-titan-guardian-wallpaper-5860.jpg",
-      allPvEKills: this.props.users.BBU.members.table.Scott.table.stats.kills.basic.value,
-      kdr: this.props.users.BBU.members.table.Scott.table.stats.killsDeathsRatio.basic.displayValue,
-      precisionKills: this.props.users.BBU.members.table.Scott.table.stats.precisionKills.basic.value,
-      avgKillDistance: this.props.users.BBU.members.table.Scott.table.stats.averageKillDistance.basic.value,
-      longestKillDistance: this.props.users.BBU.members.table.Scott.table.stats.longestKillDistance.basic.value,
-      avgLifeSpan: this.props.users.BBU.members.table.Scott.table.stats.averageLifespan.basic.displayValue,
-      abilityKills: this.props.users.BBU.members.table.Scott.table.stats.abilityKills.basic.value,
-      avgResurrection: this.props.users.BBU.members.table.Scott.table.stats.resurrectionsPerformed.pga.displayValue,
-      favouriteWep: this.props.users.BBU.members.table.Scott.table.stats.weaponBestType.basic.displayValue
+      allPvEKills: scottStat.kills.basic.value,
+      kdr: scottStat.killsDeathsRatio.basic.value,
+      precisionKills: scottStat.precisionKills.basic.value,
+      avgKillDistance: scottStat.averageKillDistance.basic.value,
+      longestKillDistance: scottStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: scottStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: scottStat.averageLifespan.basic.value,
+      abilityKills: scottStat.abilityKills.basic.value,
+      avgResurrection: scottStat.resurrectionsPerformed.pga.value,
+      featsCount: scottStat.activitiesCleared.value,
+      avgAssists: scottStat.assists.pga.value,
+      favouriteWep: scottStat.weaponBestType.basic.displayValue
     };
     const pat = {
       id: 6,
@@ -145,15 +167,18 @@ class UsersIndex extends React.Component  {
       username: "Pat84571",
       color: "brown",
       pic: "http://hdqwalls.com/wallpapers/destiny-warlock-guardian.jpg",
-      allPvEKills: this.props.users.BBU.members.table.Pat.table.stats.kills.basic.value,
-      kdr: this.props.users.BBU.members.table.Pat.table.stats.killsDeathsRatio.basic.displayValue, // string
-      precisionKills: this.props.users.BBU.members.table.Pat.table.stats.precisionKills.basic.value,
-      avgKillDistance: this.props.users.BBU.members.table.Pat.table.stats.averageKillDistance.basic.value,
-      longestKillDistance: this.props.users.BBU.members.table.Pat.table.stats.longestKillDistance.basic.value,
-      avgLifeSpan: this.props.users.BBU.members.table.Pat.table.stats.averageLifespan.basic.displayValue, // string
-      abilityKills: this.props.users.BBU.members.table.Pat.table.stats.abilityKills.basic.value,
-      avgResurrection: this.props.users.BBU.members.table.Pat.table.stats.resurrectionsPerformed.pga.displayValue, // string
-      favouriteWep: this.props.users.BBU.members.table.Pat.table.stats.weaponBestType.basic.displayValue // string
+      allPvEKills: patStat.kills.basic.value,
+      kdr: patStat.killsDeathsRatio.basic.value,
+      precisionKills: patStat.precisionKills.basic.value,
+      avgKillDistance: patStat.averageKillDistance.basic.value,
+      longestKillDistance: patStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: patStat.averageLifespan.basic.displayValue, // string
+      avgLifeSpanValue: patStat.averageLifespan.basic.value,
+      abilityKills: patStat.abilityKills.basic.value,
+      avgResurrection: patStat.resurrectionsPerformed.pga.value,
+      featsCount: patStat.activitiesCleared.value,
+      avgAssists: patStat.assists.pga.value,
+      favouriteWep: patStat.weaponBestType.basic.displayValue // string
     };
     let buddies = [brenna, jake, cassie, stian, scott, pat];
     let individualsModeClass = ""
@@ -161,7 +186,7 @@ class UsersIndex extends React.Component  {
     let banners
     if (this.state.individualsMode) {
       banners = buddies.map( buddy => {
-        let classes = "banner individuals " + buddy.name
+        let classes = "banner " + buddy.name
         if (this.state.selected == buddy.name) {
           classes += " selected"
         } else if (this.state.former == buddy.name) {
@@ -172,7 +197,7 @@ class UsersIndex extends React.Component  {
             <img src={buddy.pic} onClick={this.toggleBanner(buddy.name)}></img>
             <div className="statsheet">
               <h3>{buddy.name}</h3>
-              <h4>All-Time PvE/PvP Statistics</h4>
+              <h4>All-Time PvE Statistics</h4>
               <table>
                 <tbody>
                   <tr>
@@ -181,7 +206,7 @@ class UsersIndex extends React.Component  {
                   </tr>
                   <tr>
                     <th>KDR</th>
-                    <th>{buddy.kdr}</th>
+                    <th>{buddy.kdr.toFixed(2).toString()}</th>
                   </tr>
                   <tr>
                     <th>Precision Rating</th>
@@ -201,11 +226,11 @@ class UsersIndex extends React.Component  {
                   </tr>
                   <tr>
                     <th>Mean Life Expectancy</th>
-                    <th>{buddy.avgLifeSpan}</th>
+                    <th>{buddy.avgLifeSpanDisplay}</th>
                   </tr>
                   <tr>
                     <th>Mean Resurrections Rate</th>
-                    <th>{buddy.avgResurrection}</th>
+                    <th>{buddy.avgResurrection.toFixed(2).toLocaleString()}</th>
                   </tr>
                   <tr>
                     <th>Choice Weapon</th>
@@ -218,7 +243,31 @@ class UsersIndex extends React.Component  {
         )
       }
     )
-  } //else statement here
+  } else {
+    let current_stat = this.state.statChosen
+    let all_stats = []
+
+    buddies.map( buddy => {
+      all_stats.push(buddy[current_stat])
+    });
+
+    let max_figure = Math.max.apply(Math, all_stats)
+
+    banners = buddies.map( buddy => {
+      let classes = "banner " + buddy.name
+      if (this.state.former == buddy.name) {
+        classes += " former"
+      }
+      let percentage = (buddy[current_stat] / max_figure) * 100
+      let cssHeight = {height: (percentage.toString() + "%")}
+      return (
+        <div className={classes} id={buddy.name} key={buddy.id}>
+          <div className="statBlinds"></div>
+          <div className="statBar" style={cssHeight}></div>
+        </div>
+      )
+    })
+  }
     return (
       <div>
         <div className="Header" >
@@ -237,7 +286,7 @@ class UsersIndex extends React.Component  {
         <ul className="NavigationMenu">
           <li>
             <p className="Left">[</p>
-            <p className="Title Kills">Kills</p>
+            <p className="Title Kills" onClick={this.activateStatBanner("allPvEKills")}>Kills</p>
             <p className="Right">]</p>
           </li>
           <li>
@@ -257,6 +306,18 @@ class UsersIndex extends React.Component  {
           </li>
           <li>
             <p className="Left">[</p>
+            <p className="Title Life">Mean Assists</p>
+            <p className="Right">]</p>
+          </li>
+          <li>
+            <p className="Left">[</p>
+            <p className="Title ResurrectionsRate">Mean Resurrections Rate</p>
+            <p className="Right">]</p>
+          </li>
+        </ul>
+        <ul className="NavigationMenu">
+          <li>
+            <p className="Left">[</p>
             <p className="Title AvgDistance">Mean Kill Distance</p>
             <p className="Right">]</p>
           </li>
@@ -267,14 +328,15 @@ class UsersIndex extends React.Component  {
           </li>
           <li>
             <p className="Left">[</p>
-            <p className="Title ResurrectionsRate">Resurrections Rate</p>
+            <p className="Title Life">Mean Life Expectancy</p>
             <p className="Right">]</p>
           </li>
           <li>
             <p className="Left">[</p>
-            <p className="Title Life">Mean Life Expectancy</p>
+            <p className="Title Life">Feats Accomplished</p>
             <p className="Right">]</p>
           </li>
+
         </ul>
       </div>
     )
