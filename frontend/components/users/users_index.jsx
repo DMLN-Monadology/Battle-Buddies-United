@@ -19,8 +19,6 @@ class UsersIndex extends React.Component  {
     if (this.state.statChosen != prevState.statChosen) {
       this.setState({blindReset: false})
       this.setState({prevBarHeights: window.prevBarHeights})
-      console.log(prevState.prevBarHeights);
-      console.log(window.prevBarHeights);
     };
   }
 
