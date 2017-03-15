@@ -74,7 +74,7 @@ class UsersIndex extends React.Component  {
   render() {
     if (!this.props.users.BBU) {
       return (
-        <div id="loading">loading! retrieving user data</div>
+        <div id="loading">Please Wait. Retrieving latest user data from Bungie's Destiny server...</div>
       )
     };
 
@@ -90,7 +90,7 @@ class UsersIndex extends React.Component  {
       nameVal: "stian",
       username: "GWL_Monadology",
       color: "#5A9386",
-      pic: "https://s-media-cache-ak0.pinimg.com/originals/f6/83/87/f6838706af8603e7296b7118b41b4b25.jpg",
+      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558767/f6838706af8603e7296b7118b41b4b25_bz1zz0.jpg",
       allPvEKills: stianStat.kills.basic.value,
       kdr: stianStat.killsDeathsRatio.basic.value,
       precisionKills: stianStat.precisionKills.basic.value,
@@ -113,7 +113,7 @@ class UsersIndex extends React.Component  {
       nameVal: "brenna",
       username: "Aleu1794",
       color: "#78B41A",
-      pic: "https://i1.wp.com/destinynews.net/wp-content/uploads/2014/01/1-VrOpJjE.jpg",
+      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558787/1-VrOpJjE_wi08nh.jpg",
       allPvEKills: brennaStat.kills.basic.value,
       kdr: brennaStat.killsDeathsRatio.basic.value,
       precisionKills: brennaStat.precisionKills.basic.value,
@@ -136,7 +136,7 @@ class UsersIndex extends React.Component  {
       nameVal: "jake",
       username: "DeltaZero117",
       color: "#BEA243",
-      pic : "http://excitelt.com/i/2017/02/destiny-titan-wallpapers-android.png",
+      pic : "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558807/destiny-titan-wallpapers-android_vjvops.png",
       allPvEKills: jakeStat.kills.basic.value,
       kdr: jakeStat.killsDeathsRatio.basic.value,
       precisionKills: jakeStat.precisionKills.basic.value,
@@ -159,7 +159,7 @@ class UsersIndex extends React.Component  {
       nameVal: "cassie",
       username: "Vasi_0713",
       color: "#CE3D45",
-      pic: "https://s-media-cache-ak0.pinimg.com/originals/fc/ff/c9/fcffc9ebbec9417b601cb8c4d6074d3b.jpg",
+      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558830/fcffc9ebbec9417b601cb8c4d6074d3b_fbfaqv.jpg",
       allPvEKills: cassieStat.kills.basic.value,
       kdr: cassieStat.killsDeathsRatio.basic.value,
       precisionKills: cassieStat.precisionKills.basic.value,
@@ -182,7 +182,7 @@ class UsersIndex extends React.Component  {
       nameVal: "scott",
       username: "BobaFettLives21",
       color: "#77A0E0",
-      pic: "http://www.wallpapermade.com/images/wallpapers/originals/destiny-titan-guardian-wallpaper-5860.jpg",
+      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558847/destiny-titan-guardian-wallpaper-5860_bpe105.jpg",
       allPvEKills: scottStat.kills.basic.value,
       kdr: scottStat.killsDeathsRatio.basic.value,
       precisionKills: scottStat.precisionKills.basic.value,
@@ -205,7 +205,7 @@ class UsersIndex extends React.Component  {
       nameVal: "pat",
       username: "Pat84571",
       color: "#BC8B67",
-      pic: "http://hdqwalls.com/wallpapers/destiny-warlock-guardian.jpg",
+      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558866/destiny-warlock-guardian_hqlkta.jpg",
       allPvEKills: patStat.kills.basic.value,
       kdr: patStat.killsDeathsRatio.basic.value,
       precisionKills: patStat.precisionKills.basic.value,
@@ -436,6 +436,12 @@ class UsersIndex extends React.Component  {
           </li>
 
         </ul>
+
+        <div className="DeveloperBio">
+          <h4>About the Developer</h4>
+          <img className="profilepic" src="http://res.cloudinary.com/dmuuruew8/image/upload/v1480583007/ProfilePic_wmhs34.jpg"></img>
+          <p>Web Developer based in San Francisco. Yale graduate of 2016. Lover of Economics, Political Science and Philosophy. Passionate about saving virtual universes.</p>
+        </div>
       </div>
     )
   }

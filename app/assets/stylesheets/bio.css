@@ -1,0 +1,30 @@
+.DeveloperBio {
+  margin: 600px auto auto auto;
+  background-color: #142D70;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 40px;
+  min-width: 800px;
+  max-width: 800px;
+  align-items: center;
+  border: 8px solid white;
+  border-radius: 8px;
+}
+
+.DeveloperBio h4 {
+  color: white;
+}
+
+.DeveloperBio img {
+  width: 150px;
+  border-radius: 50%;
+  margin: 30px auto;
+}
+
+.DeveloperBio p {
+  color: white;
+  font-family: 'sans-serif';
+  text-align: center;
+  padding: 0px 80px;
+}
