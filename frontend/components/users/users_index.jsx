@@ -10,22 +10,26 @@ class UsersIndex extends React.Component  {
       former: "",
       individualsMode: false,
       blindReset: false,
+      prevBarHeights: {stian: "0px", cassie:"0px", jake:"0px", pat:"0px", scott:"0px", brenna:"0px"},
       statChosen: "allPvEKills"
     };
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("componentDidUpdate ran");
-    console.log(prevState.statChosen);
-    console.log(this.state.statChosen);
     if (this.state.statChosen != prevState.statChosen) {
       this.setState({blindReset: false})
+      this.setState({prevBarHeights: window.prevBarHeights})
+      console.log(prevState.prevBarHeights);
+      console.log(window.prevBarHeights);
     };
   }
 
-  // componentWillMount() {
-  //   this.props.fetchUsers();
-  // }
+  componentWillMount() {
+    this.props.fetchUsers();
+    window.prevBarHeights = {
+      stian: "0px", cassie:"0px", jake:"0px", pat:"0px", scott:"0px", brenna:"0px"
+    }
+  }
 
 
   activateStatBanner(stat) {
@@ -68,138 +72,157 @@ class UsersIndex extends React.Component  {
   };
 
   render() {
-    // if (!this.props.users.BBU) {
-    //   return (
-    //     <div id="loading">loading! retrieving user data</div>
-    //   )
-    // };
+    if (!this.props.users.BBU) {
+      return (
+        <div id="loading">loading! retrieving user data</div>
+      )
+    };
 
+    const stianStat = this.props.users.BBU.members.table.Stian.table.stats
+    const brennaStat = this.props.users.BBU.members.table.Brenna.table.stats
+    const jakeStat = this.props.users.BBU.members.table.Jake.table.stats
+    const cassieStat = this.props.users.BBU.members.table.Cassie.table.stats
+    const scottStat = this.props.users.BBU.members.table.Scott.table.stats
+    const patStat = this.props.users.BBU.members.table.Pat.table.stats
     const stian = {
       id: 1,
       name: "Stian",
+      nameVal: "stian",
       username: "GWL_Monadology",
       color: "#5A9386",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/f6/83/87/f6838706af8603e7296b7118b41b4b25.jpg",
-      allPvEKills: 10000,
-      kdr: 10.00,
-      precisionKills: 1000,
-      precisionRate: 10.0,
-      abilitiesRate: 10.0,
-      avgKillDistance: 100,
-      longestKillDistance: 1000,
-      avgLifeSpanDisplay: "10m30s",
-      avgLifeSpanValue: 1000,
-      abilityKills: 1000,
-      avgResurrection: 10.0,
-      featsCount: 100,
-      avgAssists: 10,
-      favouriteWep: "auto rifle"
+      allPvEKills: stianStat.kills.basic.value,
+      kdr: stianStat.killsDeathsRatio.basic.value,
+      precisionKills: stianStat.precisionKills.basic.value,
+      precisionRate: (stianStat.precisionKills.basic.value/stianStat.kills.basic.value)*100,
+      abilitiesRate: (stianStat.abilityKills.basic.value/stianStat.kills.basic.value)*100,
+      avgKillDistance: stianStat.averageKillDistance.basic.value,
+      longestKillDistance: stianStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: stianStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: stianStat.averageLifespan.basic.value,
+      abilityKills: stianStat.abilityKills.basic.value,
+      avgResurrection: stianStat.resurrectionsPerformed.pga.value,
+      featsCount: stianStat.activitiesCleared.basic.value,
+      avgAssists: stianStat.assists.pga.value,
+      favouriteWep: stianStat.weaponBestType.basic.displayValue,
+      prevBarHeight: this.state.prevBarHeights.stian
     };
     const brenna = {
       id: 2,
       name: "Brenna",
+      nameVal: "brenna",
       username: "Aleu1794",
       color: "#78B41A",
       pic: "https://i1.wp.com/destinynews.net/wp-content/uploads/2014/01/1-VrOpJjE.jpg",
-      allPvEKills: 17000,
-      kdr: 17.00,
-      precisionKills: 1700,
-      precisionRate: 10.7,
-      abilitiesRate: 10.7,
-      avgKillDistance: 170,
-      longestKillDistance: 1700,
-      avgLifeSpanDisplay: "10m30s",
-      avgLifeSpanValue: 1700,
-      abilityKills: 1700,
-      avgResurrection: 10.7,
-      featsCount: 170,
-      avgAssists: 17,
-      favouriteWep: "auto rifle"
+      allPvEKills: brennaStat.kills.basic.value,
+      kdr: brennaStat.killsDeathsRatio.basic.value,
+      precisionKills: brennaStat.precisionKills.basic.value,
+      precisionRate: (brennaStat.precisionKills.basic.value/brennaStat.kills.basic.value)*100,
+      abilitiesRate: (brennaStat.abilityKills.basic.value/brennaStat.kills.basic.value)*100,
+      avgKillDistance: brennaStat.averageKillDistance.basic.value,
+      longestKillDistance: brennaStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: brennaStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: brennaStat.averageLifespan.basic.value,
+      abilityKills: brennaStat.abilityKills.basic.value,
+      avgResurrection: brennaStat.resurrectionsPerformed.pga.value,
+      featsCount: brennaStat.activitiesCleared.basic.value,
+      avgAssists: brennaStat.assists.pga.value,
+      favouriteWep: brennaStat.weaponBestType.basic.displayValue,
+      prevBarHeight: this.state.prevBarHeights.brenna
     };
     const jake = {
       id: 3,
       name: "Jake",
+      nameVal: "jake",
       username: "DeltaZero117",
       color: "#BEA243",
       pic : "http://excitelt.com/i/2017/02/destiny-titan-wallpapers-android.png",
-      allPvEKills: 11000,
-      kdr: 11.00,
-      precisionKills: 1100,
-      precisionRate: 10.1,
-      abilitiesRate: 10.1,
-      avgKillDistance: 110,
-      longestKillDistance: 1100,
-      avgLifeSpanDisplay: "10m30s",
-      avgLifeSpanValue: 1100,
-      abilityKills: 1100,
-      avgResurrection: 10.1,
-      featsCount: 110,
-      avgAssists: 11,
-      favouriteWep: "auto rifle"
+      allPvEKills: jakeStat.kills.basic.value,
+      kdr: jakeStat.killsDeathsRatio.basic.value,
+      precisionKills: jakeStat.precisionKills.basic.value,
+      precisionRate: (jakeStat.precisionKills.basic.value/jakeStat.kills.basic.value)*100,
+      abilitiesRate: (jakeStat.abilityKills.basic.value/jakeStat.kills.basic.value)*100,
+      avgKillDistance: jakeStat.averageKillDistance.basic.value,
+      longestKillDistance: jakeStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: jakeStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: jakeStat.averageLifespan.basic.value,
+      abilityKills: jakeStat.abilityKills.basic.value,
+      avgResurrection: jakeStat.resurrectionsPerformed.pga.value,
+      featsCount: jakeStat.activitiesCleared.basic.value,
+      avgAssists: jakeStat.assists.pga.value,
+      favouriteWep: jakeStat.weaponBestType.basic.displayValue,
+      prevBarHeight: this.state.prevBarHeights.jake
     };
     const cassie = {
       id: 4,
       name: "Cassie",
+      nameVal: "cassie",
       username: "Vasi_0713",
       color: "#CE3D45",
       pic: "https://s-media-cache-ak0.pinimg.com/originals/fc/ff/c9/fcffc9ebbec9417b601cb8c4d6074d3b.jpg",
-      allPvEKills: 18000,
-      kdr: 18.00,
-      precisionKills: 1800,
-      precisionRate: 10.8,
-      abilitiesRate: 10.8,
-      avgKillDistance: 180,
-      longestKillDistance: 1800,
-      avgLifeSpanDisplay: "10m30s",
-      avgLifeSpanValue: 1800,
-      abilityKills: 1800,
-      avgResurrection: 10.8,
-      featsCount: 180,
-      avgAssists: 18,
-      favouriteWep: "auto rifle"
+      allPvEKills: cassieStat.kills.basic.value,
+      kdr: cassieStat.killsDeathsRatio.basic.value,
+      precisionKills: cassieStat.precisionKills.basic.value,
+      precisionRate: (cassieStat.precisionKills.basic.value/cassieStat.kills.basic.value)*100,
+      abilitiesRate: (cassieStat.abilityKills.basic.value/cassieStat.kills.basic.value)*100,
+      avgKillDistance: cassieStat.averageKillDistance.basic.value,
+      longestKillDistance: cassieStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: cassieStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: cassieStat.averageLifespan.basic.value,
+      abilityKills: cassieStat.abilityKills.basic.value,
+      avgResurrection: cassieStat.resurrectionsPerformed.pga.value,
+      featsCount: cassieStat.activitiesCleared.basic.value,
+      avgAssists: cassieStat.assists.pga.value,
+      favouriteWep: cassieStat.weaponBestType.basic.displayValue,
+      prevBarHeight: this.state.prevBarHeights.cassie
     };
     const scott = {
       id: 5,
       name: "Scott",
+      nameVal: "scott",
       username: "BobaFettLives21",
       color: "#77A0E0",
       pic: "http://www.wallpapermade.com/images/wallpapers/originals/destiny-titan-guardian-wallpaper-5860.jpg",
-      allPvEKills: 14000,
-      kdr: 14.00,
-      precisionKills: 1400,
-      precisionRate: 10.4,
-      abilitiesRate: 10.4,
-      avgKillDistance: 140,
-      longestKillDistance: 1400,
-      avgLifeSpanDisplay: "10m30s",
-      avgLifeSpanValue: 1400,
-      abilityKills: 1400,
-      avgResurrection: 10.4,
-      featsCount: 140,
-      avgAssists: 14,
-      favouriteWep: "auto rifle"
+      allPvEKills: scottStat.kills.basic.value,
+      kdr: scottStat.killsDeathsRatio.basic.value,
+      precisionKills: scottStat.precisionKills.basic.value,
+      precisionRate: (scottStat.precisionKills.basic.value/scottStat.kills.basic.value)*100,
+      abilitiesRate: (scottStat.abilityKills.basic.value/scottStat.kills.basic.value)*100,
+      avgKillDistance: scottStat.averageKillDistance.basic.value,
+      longestKillDistance: scottStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: scottStat.averageLifespan.basic.displayValue,
+      avgLifeSpanValue: scottStat.averageLifespan.basic.value,
+      abilityKills: scottStat.abilityKills.basic.value,
+      avgResurrection: scottStat.resurrectionsPerformed.pga.value,
+      featsCount: scottStat.activitiesCleared.basic.value,
+      avgAssists: scottStat.assists.pga.value,
+      favouriteWep: scottStat.weaponBestType.basic.displayValue,
+      prevBarHeight: this.state.prevBarHeights.scott
     };
     const pat = {
       id: 6,
       name: "Patty Pat Pat",
+      nameVal: "pat",
       username: "Pat84571",
       color: "#BC8B67",
       pic: "http://hdqwalls.com/wallpapers/destiny-warlock-guardian.jpg",
-      allPvEKills: 15000,
-      kdr: 15.00,
-      precisionKills: 1500,
-      precisionRate: 10.5,
-      abilitiesRate: 10.5,
-      avgKillDistance: 150,
-      longestKillDistance: 1500,
-      avgLifeSpanDisplay: "10m30s",
-      avgLifeSpanValue: 1500,
-      abilityKills: 1500,
-      avgResurrection: 10.5,
-      featsCount: 150,
-      avgAssists: 15,
-      favouriteWep: "auto rifle"
+      allPvEKills: patStat.kills.basic.value,
+      kdr: patStat.killsDeathsRatio.basic.value,
+      precisionKills: patStat.precisionKills.basic.value,
+      precisionRate: (patStat.precisionKills.basic.value/patStat.kills.basic.value)*100,
+      abilitiesRate: (patStat.abilityKills.basic.value/patStat.kills.basic.value)*100,
+      avgKillDistance: patStat.averageKillDistance.basic.value,
+      longestKillDistance: patStat.longestKillDistance.basic.value,
+      avgLifeSpanDisplay: patStat.averageLifespan.basic.displayValue, // string
+      avgLifeSpanValue: patStat.averageLifespan.basic.value,
+      abilityKills: patStat.abilityKills.basic.value,
+      avgResurrection: patStat.resurrectionsPerformed.pga.value,
+      featsCount: patStat.activitiesCleared.basic.value,
+      avgAssists: patStat.assists.pga.value,
+      favouriteWep: patStat.weaponBestType.basic.displayValue, // string
+      prevBarHeight: this.state.prevBarHeights.stian
     };
+
 
 
     let buddies = [brenna, jake, cassie, stian, scott, pat];
@@ -285,7 +308,7 @@ class UsersIndex extends React.Component  {
 
   } else {
     let current_stat = this.state.statChosen
-    let all_stats = [];
+    let all_stats = []
 
     buddies.map( buddy => {
       all_stats.push(buddy[current_stat])
@@ -294,12 +317,27 @@ class UsersIndex extends React.Component  {
     let max_figure = Math.max.apply(Math, all_stats)
 
     banners = buddies.map( buddy => {
-      let classes = "banner " + buddy.name;
-      let percentage = (buddy[current_stat] / max_figure) * 100
-      let cssStyles = {height: (percentage.toString() + "%"), backgroundColor: buddy.color}
+      let height = (buddy[current_stat] / max_figure) * 550
+      let classes = "banner stat " + buddy.name;
+      if (this.state.former == buddy.name) {
+        classes += " former"
+      }
+      let styleSheet = document.styleSheets[0];
+      let a = "150px"
+      let keyframes = `@-webkit-keyframes "${buddy.nameVal}" {
+        0% {height: ${buddy.prevBarHeight};}
+        15% {height: ${buddy.prevBarHeight};}
+        100% {height: ${height};}
+      }`;
+      styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+      let barStyles = {height: height, backgroundColor: buddy.color, animation: `${buddy.nameVal} 3s`}
+      let datumStyles = {color: buddy.color}
+
+      window.prevBarHeights[buddy.nameVal] = (height.toString() + "px")
       return (
         <div className={classes} id={buddy.name} key={buddy.id}>
-          <div className="statBar" style={cssStyles}></div>
+          <p className="statDatum" style={datumStyles}>numbers</p>
+          <div className="statBar" style={barStyles}></div>
         </div>
       )
     })

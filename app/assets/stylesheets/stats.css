@@ -46,18 +46,34 @@
   padding-right: 15px;
 }
 
-
-
 .statBar {
   max-height: 550px;
   width: 98%;
   margin: 0px auto;
   align-self: flex-end;
   z-index: 5;
-  animation: maxheight 4s;
+  /*animation: barRise 3s;*/
 }
 
-@keyframes maxheight {
+/*@keyframes barRise {
   0% {max-height: 0px;}
+  15% {max-height: 0px;}
   100% {max-height: 550px;}
+}*/
+
+.statDatum {
+  align-self: flex-end;
+  animation: datumFadein 4s;
+  margin: 10px auto;
+}
+
+@keyframes datumFadein {
+  0% {opacity: 0;}
+  75% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.stat {
+  justify-content: flex-end;
+  flex-direction: column;
 }
