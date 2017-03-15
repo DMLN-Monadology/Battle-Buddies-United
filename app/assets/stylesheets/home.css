@@ -19,7 +19,6 @@ body {
 }
 
 .Header img {
-  margin-top: 25px;
   height: 175%;
 }
 
@@ -28,7 +27,7 @@ body {
   height: 600px;
   position: relative;
   top: 100px;
-  margin: auto;
+  margin: -50px auto 0px auto;
   display: flex;
 }
 
