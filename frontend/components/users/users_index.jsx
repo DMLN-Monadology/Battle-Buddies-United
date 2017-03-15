@@ -8,10 +8,10 @@ class UsersIndex extends React.Component  {
     this.state = {
       selected: "",
       former: "",
-      individualsMode: false,
+      individualsMode: true,
       blindReset: false,
       prevBarHeights: {stian: "0px", cassie:"0px", jake:"0px", pat:"0px", scott:"0px", brenna:"0px"},
-      statChosen: "allPvEKills"
+      statChosen: ""
     };
   }
 
@@ -309,10 +309,19 @@ class UsersIndex extends React.Component  {
   } else {
     let current_stat = this.state.statChosen
     let all_stats = []
+    let ranking = []
 
     buddies.map( buddy => {
-      all_stats.push(buddy[current_stat])
+      all_stats.push(buddy[current_stat]);
+      ranking.push({name: buddy.nameVal, datum: buddy[current_stat]});
     });
+
+    ranking.sort( (a,b) => (a.datum - b.datum))
+
+    let first = ranking[5].name
+    let second = ranking[4].name
+    let third = ranking[3].name
+
 
     let max_figure = Math.max.apply(Math, all_stats)
 
@@ -323,7 +332,7 @@ class UsersIndex extends React.Component  {
         datum = buddy.avgLifeSpanDisplay
       } else {
         datum = buddy[current_stat]
-        if (datum > 1000) {
+        if (datum > 500) {
           datum = datum.toLocaleString();
         } else {
           datum = datum.toFixed(2);
@@ -333,6 +342,7 @@ class UsersIndex extends React.Component  {
       if (this.state.former == buddy.name) {
         classes += " former"
       }
+
       let styleSheet = document.styleSheets[0];
       let a = "150px"
       let keyframes = `@-webkit-keyframes "${buddy.nameVal}" {
@@ -349,13 +359,16 @@ class UsersIndex extends React.Component  {
         <div className={classes} id={buddy.name} key={buddy.id}>
           <p className="statDatum" style={datumStyles}>{datum}</p>
           <div className="statBar" style={barStyles}></div>
+          <h2 className="nametag">{buddy.name}</h2>
         </div>
       )
     })
   }
     return (
       <div>
-        <div className="Header" >
+        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css?family=Donegal+One" rel="stylesheet"></link>
+        <div className="Header">
           <img src="http://res.cloudinary.com/dmuuruew8/image/upload/v1489278658/Screen_Shot_2017-03-11_at_4.27.36_PM_hs0wlv.png"/>
         </div>
         <div className="BannersContainer">
