@@ -1,12 +1,18 @@
 import React from 'react';
 import UsersContainer from './users/users_container';
 
-const App = ({children}) => (
+const App = () => (
   <div>
-    <UsersContainer/>
-    
-    {children}
+     <UsersContainer/>
   </div>
 );
 
 export default App;
+
+// const App = ({children}) => (
+//   <div>
+//     <UsersContainer/>
+//
+//     {children}
+//   </div>
+// );
