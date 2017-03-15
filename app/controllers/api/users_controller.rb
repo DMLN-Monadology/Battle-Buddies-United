@@ -1,4 +1,4 @@
-require 'byebug'
+
 require 'ostruct'
 
 class Api::UsersController < ApplicationController
