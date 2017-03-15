@@ -220,7 +220,7 @@ class UsersIndex extends React.Component  {
       featsCount: patStat.activitiesCleared.basic.value,
       avgAssists: patStat.assists.pga.value,
       favouriteWep: patStat.weaponBestType.basic.displayValue, // string
-      prevBarHeight: this.state.prevBarHeights.stian
+      prevBarHeight: this.state.prevBarHeights.pat
     };
 
 
@@ -318,6 +318,17 @@ class UsersIndex extends React.Component  {
 
     banners = buddies.map( buddy => {
       let height = (buddy[current_stat] / max_figure) * 550
+      let datum
+      if (current_stat == "avgLifeSpanValue") {
+        datum = buddy.avgLifeSpanDisplay
+      } else {
+        datum = buddy[current_stat]
+        if (datum > 1000) {
+          datum = datum.toLocaleString();
+        } else {
+          datum = datum.toFixed(2);
+        }
+      }
       let classes = "banner stat " + buddy.name;
       if (this.state.former == buddy.name) {
         classes += " former"
@@ -336,7 +347,7 @@ class UsersIndex extends React.Component  {
       window.prevBarHeights[buddy.nameVal] = (height.toString() + "px")
       return (
         <div className={classes} id={buddy.name} key={buddy.id}>
-          <p className="statDatum" style={datumStyles}>numbers</p>
+          <p className="statDatum" style={datumStyles}>{datum}</p>
           <div className="statBar" style={barStyles}></div>
         </div>
       )
