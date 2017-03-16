@@ -88,7 +88,7 @@ class UsersIndex extends React.Component  {
       nameVal: "stian",
       username: "GWL_Monadology",
       color: "#5A9386",
-      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558767/f6838706af8603e7296b7118b41b4b25_bz1zz0.jpg",
+      pic: "http://i.imgur.com/hKoUHrK.jpg",
       allPvEKills: stianStat.kills.basic.value,
       kdr: stianStat.killsDeathsRatio.basic.value,
       precisionKills: stianStat.precisionKills.basic.value,
@@ -111,7 +111,7 @@ class UsersIndex extends React.Component  {
       nameVal: "brenna",
       username: "Aleu1794",
       color: "#78B41A",
-      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558787/1-VrOpJjE_wi08nh.jpg",
+      pic: "http://i.imgur.com/rANsge5.jpg",
       allPvEKills: brennaStat.kills.basic.value,
       kdr: brennaStat.killsDeathsRatio.basic.value,
       precisionKills: brennaStat.precisionKills.basic.value,
@@ -134,7 +134,7 @@ class UsersIndex extends React.Component  {
       nameVal: "jake",
       username: "DeltaZero117",
       color: "#BEA243",
-      pic : "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558807/destiny-titan-wallpapers-android_vjvops.png",
+      pic : "http://i.imgur.com/eOOIB8p.png",
       allPvEKills: jakeStat.kills.basic.value,
       kdr: jakeStat.killsDeathsRatio.basic.value,
       precisionKills: jakeStat.precisionKills.basic.value,
@@ -157,7 +157,7 @@ class UsersIndex extends React.Component  {
       nameVal: "cassie",
       username: "Vasi_0713",
       color: "#CE3D45",
-      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558830/fcffc9ebbec9417b601cb8c4d6074d3b_fbfaqv.jpg",
+      pic: "http://i.imgur.com/sHmXNXB.jpg",
       allPvEKills: cassieStat.kills.basic.value,
       kdr: cassieStat.killsDeathsRatio.basic.value,
       precisionKills: cassieStat.precisionKills.basic.value,
@@ -180,7 +180,7 @@ class UsersIndex extends React.Component  {
       nameVal: "scott",
       username: "BobaFettLives21",
       color: "#77A0E0",
-      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558847/destiny-titan-guardian-wallpaper-5860_bpe105.jpg",
+      pic: "http://i.imgur.com/1YBeahO.jpg",
       allPvEKills: scottStat.kills.basic.value,
       kdr: scottStat.killsDeathsRatio.basic.value,
       precisionKills: scottStat.precisionKills.basic.value,
@@ -203,7 +203,7 @@ class UsersIndex extends React.Component  {
       nameVal: "pat",
       username: "Pat84571",
       color: "#BC8B67",
-      pic: "http://res.cloudinary.com/dmuuruew8/image/upload/v1489558866/destiny-warlock-guardian_hqlkta.jpg",
+      pic: "http://i.imgur.com/hwW4Ebl.jpg",
       allPvEKills: patStat.kills.basic.value,
       kdr: patStat.killsDeathsRatio.basic.value,
       precisionKills: patStat.precisionKills.basic.value,
@@ -367,7 +367,7 @@ class UsersIndex extends React.Component  {
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css?family=Donegal+One" rel="stylesheet"></link>
         <div className="Header">
-          <img src="http://res.cloudinary.com/dmuuruew8/image/upload/v1489278658/Screen_Shot_2017-03-11_at_4.27.36_PM_hs0wlv.png"/>
+          <img src="http://i.imgur.com/hBkKjaJ.png"/>
         </div>
         <div className="BannersContainer">
           { banners }
