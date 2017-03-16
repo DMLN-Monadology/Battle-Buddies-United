@@ -435,11 +435,7 @@ class UsersIndex extends React.Component  {
 
         </ul>
 
-        <div className="DeveloperBio">
-          <h4>About the Developer</h4>
-          <img className="profilepic" src="http://res.cloudinary.com/dmuuruew8/image/upload/v1480583007/ProfilePic_wmhs34.jpg"></img>
-          <p>Web Developer based in San Francisco. Yale graduate of 2016. Lover of Economics, Political Science and Philosophy. Passionate about saving virtual universes.</p>
-        </div>
+
       </div>
     )
   }
